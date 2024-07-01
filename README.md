@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Login Tracker App
 
 ## Getting Started
 
@@ -20,17 +20,31 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Code Explanation
 
-To learn more about Next.js, take a look at the following resources:
+### Home Component
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This component renders a login page with tracking for mouse movements, clicks, and key presses. Here's a breakdown of the main features:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **State Management**:
+    - `email`: Stores the user's email.
+    - `password`: Stores the user's password.
+    - `textNotRobot`: Stores the text input for the "I'm not a robot" check.
+    - `notRobot`: Boolean state for the checkbox.
+    - `mouseMoves`, `mouseClicks`, `keyPresses`: Arrays to store respective events.
 
-## Deploy on Vercel
+2. **Event Handlers**:
+    - `handleLogin`: Logs the current state values to the console.
+    - `trackMouseMove`: Adds mouse move events to the `mouseMoves` state.
+    - `trackClick`: Adds click events to the `mouseClicks` state.
+    - `trackKeyPress`: Adds key press events to the `keyPresses` state.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Event Listeners**:
+    - `useEffect`: Adds event listeners for `mousemove`, `click`, and `keydown` events on component mount and removes them on unmount.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. **UI Components**:
+    - `TextField`: For email, password, and "I'm not a robot" text input.
+    - `Checkbox`: For "I'm not a robot" confirmation.
+    - `Button`: To trigger the login action.
+
+
